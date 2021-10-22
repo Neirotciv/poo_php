@@ -1,0 +1,32 @@
+body { background-color: blue; }
+
+header { 
+    width: 1000px; 
+    height: 100px; 
+    margin: auto; 
+    margin-top: 4px;
+    margin-bottom: 20px; 
+    border: 1px double rgb(0, 0, 0);
+    background-color: rgb(214, 38, 38); 
+    box-shadow: 0 0 0 4px rgb(214, 38, 38), 10px 10px 0px black;
+}
+
+header h1 { margin-top: 0; text-align: center; }
+nav { width: 100%; text-align: center; }
+nav > a { color: rgb(0, 0, 0); font-weight: bold; text-decoration: none; padding: 5px; }
+nav > a:hover { background-color: rgb(238, 238, 238); }
+
+.wrapper { width: 1000px; margin: auto; display: flex; flex-direction: column; }
+
+.window { 
+    margin: 15px; 
+    padding: 15px; 
+    border: 1px double rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238); 
+    box-shadow: 0 0 0 4px rgb(238, 238, 238), 15px 15px 0px black;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#livraison-form { width: 50%; margin: auto; display: flex; flex-direction: column; }
