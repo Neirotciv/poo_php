@@ -1,6 +1,8 @@
 <?php 
 include_once("../classes/Product.php");
-// $bob = new Product("");
+include_once("../classes/Customer.php");
+include_once("../models/ProductModel.php");
+include_once("../models/CustomerModel.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +30,11 @@ include_once("../classes/Product.php");
                 <img src="assets/images/alice.png" alt="picture of sponge bob">
                 <a href="product.php">Voir</a>
             </div>
+
+            <?php foreach($products as $product): ?>
+                
+                <?php endforeach;
+            ?>
         </div>
     </div>
 

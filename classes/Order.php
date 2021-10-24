@@ -1,5 +1,5 @@
 <?php
-class Command {
+class Order {
     public $id;
     private $status;
     private $timestamp;
@@ -21,11 +21,11 @@ class Command {
         return $this->status;
     }
 
-    public function payer() {
+    public function pay() {
         $this->status = 1;
     }
 
-    public function annuler() {
+    public function cancel() {
         $this->status = -1;
     }
 }

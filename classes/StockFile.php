@@ -1,23 +1,23 @@
 <?php
 include_once("../classes/StockAbstract.php");
 
-class Stock extends StockAbstract {
+class StockFile extends StockAbstract {
     private $file;
     private $data = [];
     private $filename;
 
     public function __construct($table) {
         $this->filename = "../data/" . $table;
-        $this->file = fopen("../data/" . $table, "r+");
-
-        while (($row = fgetcsv($this->file)) !== FALSE) {
-            array_push($this->data, $row);
+        $this->file = fopen($this->filename, "r+");
+    
+        while ( ($row = fgetcsv($this->file) ) !== FALSE ) {
+          array_push($this->data, $row);
         }
-    }
-
-    public function readAll() {
-        return $this->$data;
-    }
+      }
+    
+      public function readAll() {
+        return $this->data;
+      }
 
     public function readRow($row) {
         return $this->$data[$row];

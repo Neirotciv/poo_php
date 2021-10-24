@@ -2,13 +2,8 @@
 session_start();
 require_once("../classes/Customer.php");
 require_once("../classes/Product.php");
-require_once("../classes/Command.php");
-require_once("../classes/Stock.php");
-
-// $stock = new Stock("product.csv");
-// $stock->create(["PR1", "Bob", "Un super Bob", 99]);
-// var_dump($stock);
-// die();
+require_once("../classes/Order.php");
+require_once("../classes/StockFile.php");
 
 // Vérification des saisies
 if (
@@ -44,7 +39,7 @@ if (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) {
 // Création du client
 $customer = new Customer($lastname, $fistname, $adress, $email, $telephone);
 // Création de la commande
-$command = new Command($customer, $product);
+$order = new Order($customer, $product);
 
 $_SESSION["user"] = [
     "lastname" => $lastname,

@@ -14,5 +14,4 @@ class Product {
     $this->nom = $nom;
     $this->description = $description;
   }
-
 }
