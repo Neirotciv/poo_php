@@ -28,5 +28,8 @@ nav > a:hover { background-color: rgb(238, 238, 238); }
     justify-content: space-around;
 }
 
+.alert {
+    box-shadow: 0 0 0 4px rgb(255, 0, 0), 15px 15px 0px black;
+}
 
 #livraison-form { width: 50%; margin: auto; display: flex; flex-direction: column; }

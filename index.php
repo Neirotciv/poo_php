@@ -1,22 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bob et Alice</title>
-</head>
-<body>
-<?php include("views/partials/header.php") ?>
-    
+<?php
+session_start();
 
-    <div class="wrapper">
+// Routing
+$url = explode("?", $_SERVER["REQUEST_URI"])[0];
+$data = explode("/", $url);
+$page = $data[2];
 
-    </div>
-
-    <?php include("views/partials/footer.php") ?>
-</body>
-</html>
-
-<?php 
-header("location: views/catalog.php");
+switch($page) {
+    case "":
+        include("views/catalog.php");
+        break;
+    case "catalog":
+        include("views/catalog.php");
+        break;
+    case "order":
+        if (empty($data[3])) {
+            $param = null;
+        } else {
+            $param = $data[3];
+        }
+        include("views/order.php");
+        break;
+    case "product":
+        if (empty($data[3])) {
+            $param = null;
+        } else {
+            $param = $data[3];
+        }
+        include("views/product.php");
+        break;
+    case "verification":
+        include("views/verification.php");
+        break;
+    case "controller":
+        if (empty($data[3])) {
+            $controller = null;
+        } else {
+            $controller = $data[3];
+        }
+        include("controllers/order_controller.php");
+        break;
+    default:
+        include("views/catalog.php");
+        break;
+}

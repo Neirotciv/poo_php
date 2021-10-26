@@ -29,5 +29,3 @@ class Order {
         $this->status = -1;
     }
 }
-
-?>

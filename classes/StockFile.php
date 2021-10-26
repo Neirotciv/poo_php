@@ -1,5 +1,5 @@
 <?php
-include_once("../classes/StockAbstract.php");
+include_once("classes/StockAbstract.php");
 
 class StockFile extends StockAbstract {
     private $file;
@@ -7,7 +7,7 @@ class StockFile extends StockAbstract {
     private $filename;
 
     public function __construct($table) {
-        $this->filename = "../data/" . $table;
+        $this->filename = "data/" . $table;
         $this->file = fopen($this->filename, "r+");
     
         while ( ($row = fgetcsv($this->file) ) !== FALSE ) {

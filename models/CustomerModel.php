@@ -1,7 +1,6 @@
 <?php
-
-require_once("../classes/Customer.php");
-require_once("../classes/StockFile.php");
+require_once("classes/Customer.php");
+require_once("classes/StockFile.php");
 
 class CustomerModel {
     public static function createCustomer($customer) {

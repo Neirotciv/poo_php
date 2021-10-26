@@ -1,5 +1,5 @@
 <?php
-require_once("../classes/Order/php");
+require_once("Order.php");
 
 class Customer {
     public $lastname;
@@ -21,5 +21,3 @@ class Customer {
         return $order;
     }
 }
-
-?>

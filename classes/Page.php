@@ -15,5 +15,3 @@ class Page {
         $contenu = "<h1>$this->titre</h1>";
     }
 }
-
-?>

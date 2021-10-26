@@ -1,9 +1,14 @@
 <?php
-session_start();
-require_once("../classes/Customer.php");
-require_once("../classes/Product.php");
-require_once("../classes/Order.php");
-require_once("../classes/StockFile.php");
+require_once("classes/Customer.php");
+require_once("classes/Product.php");
+require_once("classes/Order.php");
+require_once("classes/StockFile.php");
+
+if(strpos($_SERVER['HTTP_REFERER'], "http://localhost/ecomerce/order")) {
+    $url = $_SERVER['HTTP_REFERER'];
+} else {
+    $url = "http://localhost/ecomerce/order";
+}
 
 // Vérification des saisies
 if (
@@ -12,27 +17,27 @@ if (
     empty($_POST["email"]) || empty($_POST["product"])
 ) {
     $_SESSION["form_error"] = "Le formulaire n'est pas rempli correctement";
-    header("location: ../views/order.php");
+    header("location: " . $url);
     die();
 }
 
-$firstname = $_POST["firstname"];
-$lastname = $_POST["lastname"];
-$adress = $_POST["adress"];
-$email = $_POST["email"];
-$telephone = $_POST["telephone"];
-$product = $_POST["product"];
+$firstname = htmlentities($_POST["firstname"]);
+$lastname = htmlentities($_POST["lastname"]);
+$adress = htmlentities($_POST["adress"]);
+$email = htmlentities($_POST["email"]);
+$telephone = htmlentities($_POST["telephone"]);
+$product = htmlentities($_POST["product"]);
 
-// Filtrage des saisies
+// Filtrage des saisies utilisateur
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION["form_error"] = "Le format d'email n'est pas valide";
-    header("location: ../views/order.php");
+    header("location: " . $url);
     die();
 }
 
 if (!filter_var($telephone, FILTER_SANITIZE_NUMBER_INT)) {
     $_SESSION["form_error"] = "Le format du numéro de téléphone n'est pas valide";
-    header("location: ../views/order.php");
+    header("location: " . $url);
     die();
 }
 
@@ -49,4 +54,4 @@ $_SESSION["user"] = [
     "email" => $email,
 ];
 
-header("location: ../views/verification.php");
+header("location: /ecomerce/index.php");

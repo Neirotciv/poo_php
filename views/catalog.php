@@ -1,43 +1,23 @@
 <?php 
-include_once("../classes/Product.php");
-include_once("../classes/Customer.php");
-include_once("../models/ProductModel.php");
-include_once("../models/CustomerModel.php");
+require_once("models/ProductModel.php");
+$products = ProductModel::getAllProducts();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Bob et Alice</title>
-</head>
+<?php include("partials/head.php") ?>
 <body>
-<?php include("partials/header.php") ?>
-    
+    <?php include("partials/header.php") ?>
     <div class="wrapper">
-        <div class="window">
-            <div class="item">
-                <h4>Figurine de Bob</h4>
-                <img src="assets/images/bob-export.png" alt="picture of sponge bob">
-                <a href="product.php">Voir</a>
+        <?php foreach($products as $product): ?>
+            <div class="window">
+                <div class="item">
+                    <h4><?= $product->name ?></h4>
+                    <img src="<?= $product->image ?>" alt="picture of sponge bob">
+                    <a href="product">Voir</a>
+                </div>
             </div>
-
-            <div class="item">
-                <h4>Figurine de Alice</h4>
-                <img src="assets/images/alice.png" alt="picture of sponge bob">
-                <a href="product.php">Voir</a>
-            </div>
-
-            <?php foreach($products as $product): ?>
-                
-                <?php endforeach;
-            ?>
-        </div>
+        <?php endforeach; ?>
     </div>
-
     <?php include("partials/footer.php") ?>
 </body>
 </html>

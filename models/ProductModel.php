@@ -1,7 +1,6 @@
 <?php
-
-require_once("../classes/StockFile.php");
-require_once("../classes/Product.php");
+require_once("classes/StockFile.php");
+require_once("classes/Product.php");
 
 class ProductModel {
     public static function getProduct($ref) {
